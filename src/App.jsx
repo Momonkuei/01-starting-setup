@@ -3,10 +3,6 @@ import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = props => {
-	//原本的做法
-	// const para = document.createElement('p');
-	// para.textCpntent = 'Tis is also visible';
-	// document.getElementById('root').append(para);
 	const expenses = [
 		{
 			id: 'e1',
@@ -35,22 +31,13 @@ const App = props => {
 		},
 	];
 
-	// return React.createElement(
-	//   'div',
-	//   {},
-	//   React.createElement('h2', {}, "let's get started!"),
-	//   React.createElement(Expenses, { items: expenses })
-	// )
-
-	// React.createElement(創建網頁元素字串, 物件class屬性, 內容)
-	// 第一个参数是必填, 传入的是似HTML标签名称, eg: ul, li
-	// 第二个参数是选填.表示的是属性, eg: className
-	// 第三个参数是选填, 子节点, eg: 要显示的文本内容
-	//使用自定義元件不能使用字串
+	const addExpenseHandler = expense => {
+		console.log(expense);
+	};
 
 	return (
 		<div>
-			<NewExpense />
+			<NewExpense onAddExpense={addExpenseHandler} />
 			<Expenses items={expenses} />
 		</div>
 	);
