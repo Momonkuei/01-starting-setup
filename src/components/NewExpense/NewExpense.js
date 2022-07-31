@@ -2,6 +2,9 @@ import React from 'react';
 import './NewExpense.css';
 import ExpenseForm from './ExpenseForm';
 
+/*
+	讓新的值有ＩＤ
+*/
 const NewExpense = props => {
 	const saveExpenseDataHandler = enteredExpenseData => {
 		const expenseData = {
@@ -23,7 +26,7 @@ const NewExpense = props => {
 	return (
 		<div className="new-expense">
 			<ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-			{/* <ExpenseForm 自己命名 ={function名稱} /> */}
+			{/* <ExpenseForm 自己命名 ={function名稱 =傳入的值} /> */}
 		</div>
 	);
 };
