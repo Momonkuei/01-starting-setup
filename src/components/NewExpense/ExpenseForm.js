@@ -20,6 +20,7 @@ const ExpenseForm = props => {
 
 	const submitHandler = event => {
 		event.preventDefault();
+		/* 取消預設行為 */
 
 		const expenseData = {
 			title: enteredTitle,
