@@ -6,6 +6,8 @@ const ExpenseForm = props => {
 	const [enteredAmount, setEnteredAmount] = useState('');
 	const [enteredDate, setEnteredDate] = useState('');
 
+	/* [儲存的值,觸法要改變的方法(要改變的值)] = useState(初始值) */
+
 	const titleChangeHandler = event => {
 		setEnteredTitle(event.target.value);
 	};
@@ -17,6 +19,8 @@ const ExpenseForm = props => {
 	const dateChangeHandler = event => {
 		setEnteredDate(event.target.value);
 	};
+
+	const closeEditingHandler = props.onCloseEditing;
 
 	const submitHandler = event => {
 		event.preventDefault();
@@ -34,6 +38,8 @@ const ExpenseForm = props => {
 		setEnteredTitle('');
 		setEnteredAmount('');
 		setEnteredDate('');
+		// closeEditingHandler();
+		/* 也可在這運行 */
 	};
 
 	return (
@@ -70,7 +76,10 @@ const ExpenseForm = props => {
 					/>
 				</div>
 				<div className="new-expense__actions">
-					<button>Cnacel</button>
+					<button type="button" onClick={closeEditingHandler}>
+						{/* 可以在onClick直接引用 父元素傳遞下來的 props {props.onCloseEditing} */}
+						Cnacel
+					</button>
 					<button type="submit">Add Expense</button>
 				</div>
 			</div>
